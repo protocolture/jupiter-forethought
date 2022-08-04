@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+trap '' 2 
+
+read -p "spscwby@localhost:" input
+
+case $input in
+
+	"LEARN")
+		bash /mnt/c/Moshterm/Fallout3Terminal/LEARN 
+		;&
+	"LOAD")
+		bash /mnt/c/Moshterm/Fallout3Terminal/load 
+		;&
+	"REBOOT")
+		sleep 2
+		bash /mnt/c/Moshterm/Fallout3Terminal/terminalscript
+		;&
+	"MOTD")
+		shuf -n 1 /mnt/c/Moshterm/Fallout3Terminal/motd.txt | fmt -w 83 | pv -qL 90
+		bash /mnt/c/Moshterm/Fallout3Terminal/prompt
+		;&
+	"DISINTEGRATE")
+		exit 1
+		;&
+	*)
+		echo -e "COMMAND UNRECOGNISED" | pv -qL 90
+		sleep 2
+		bash /mnt/c/Moshterm/Fallout3Terminal/prompt
+		;;
+esac
+trap 2

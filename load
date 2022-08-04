@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+ls /mnt/c/Moshterm
+
+bash /mnt/c/Moshterm/Fallout3Terminal/prompt

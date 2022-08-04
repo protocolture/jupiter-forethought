@@ -1,0 +1,104 @@
+#!/usr/bin/env bash
+trap '' 2 
+#some random aesthetic startup junk
+
+clear
+echo Initializing BIOS | pv -qL 80
+sleep 0.4
+echo WARNING: BIOS DOES NOT MATCH CALLISTO II BIOS HASH | pv -qL 80
+sleep 0.6
+echo CONTINUE BOOT AT OWN RISK | pv -qL 80
+sleep 0.6
+echo USE OF NON STANDARD BIOS VIOLATES SOFTWARE AGREEMENT | pv -qL 80
+sleep 0.6
+echo SOLAR HARDWARE NOT RESPONSIBLE FOR DAMAGE OR DEATH | pv -qL 80
+sleep 0.8
+echo -e "\e[4AW#RNING: BI@S DOES NOT MATCH C@LL1STO II BOIS HASH" | pv -qL 80
+
+echo -e "CONTIP*E BONT AT O5N RISK" | pv -qL 80
+
+echo -e "URE 1F N*N STA*DARD B8OS VIOL(TES SOFTWARE AGR3EME^T" | pv -qL 80
+
+echo -e "SOKAR H@RD#ARE NOT RESPO7SIBLE FOR DEMAGE OR D%ATH" | pv -qL 80
+sleep 0.4
+echo -e "\e[4AW#R.ING= B*@S D*eS N%T M@TqH C@Ll1!TO %& B.IS H+SH" | pv -qL 80
+
+echo -e "CO*T+P*E BO!T AT O5N R*SK" | pv -qL 80
+
+echo -e "U!E 1F N*N STA*D+RD B8OS V*OL(T$S SOFTWARE AGR3EME^T" | pv -qL 80
+
+echo -e "S0*AR H@$D#!RE NOT RE+PO7SI*LE F+R DEM!GE @R D%ATH" | pv -qL 80
+sleep 0.4
+echo -e "\e[4AW#R.ING= B*@? D*eS N%T }@TqH C@Ll1!T+ %& B.I< H+SH" | pv -qL 80
+
+echo -e ":o*?+P*E BO!T AT O5N R*SK" | pv -qL 80
+
+echo -e "U!E 1F N*N S>A*}+RD B8OS V*OL(T$S S<FT?AR< {GR3EME^T" | pv -qL 80
+
+echo -e "S0*AR H@$D#!RE N{T RE+PO7SI*L? F+R DEM!GE @R D%ATH" | pv -qL 80
+sleep 0.4
+echo -e "\e[4A****************************************************************" | pv -qL 80
+
+echo -e "********************BIOS SECURITY OVERWRITTEN*******************" | pv -qL 80
+
+echo -e "****************************************************************" | pv -qL 80
+
+echo -e "****************************************************************" | pv -qL 80
+sleep 0.8
+
+clear
+echo -ne "Initializing boot.\r" | pv -qL 80
+sleep 0.4
+echo  -ne "Initializing boot..\r" | pv -qL 80
+sleep 0.4
+echo -ne "Initializing boot..." | pv -qL 80
+sleep 0.4
+echo Version Detect | pv -qL 80
+sleep 0.4
+echo Drake Industries DRAKOS 4.1 beta...  | pv -qL 80
+sleep 0.4
+echo Hardware Detect  | pv -qL 80
+sleep 0.6
+echo Solar Hardware Callisto II  | pv -qL 80
+sleep 0.4
+echo -ne "MEMTEST\r"  | pv -qL 80
+sleep 0.6
+
+echo -ne "MEMTEST [........]\r" | pv -qL 80
+sleep 0.6
+
+echo -ne "MEMTEST [X.......]\r" | pv -qL 80
+sleep 0.6
+
+echo -ne "MEMTEST [XX......]\r" | pv -qL 80
+sleep 0.6
+
+echo -ne "MEMTEST [XXX.....]\r" | pv -qL 80
+sleep 0.6
+
+echo -ne "MEMTEST [XXXX....]\r" | pv -qL 80
+sleep 0.8
+
+echo -ne "MEMTEST [XXXXX...]\r" | pv -qL 80
+sleep 0.6
+
+echo -ne "MEMTEST [XXXXXX..]\r" | pv -qL 80
+sleep 0.6
+
+echo -ne "MEMTEST [XXXXXXX.]\r" | pv -qL 80
+sleep 0.6
+
+echo -ne "MEMTEST [XXXXXXXX]\r" | pv -qL 80
+sleep 0.6
+
+echo -e "MEMTEST Complete     " | pv -qL 80
+sleep 0.6
+
+echo 64K RAM detected  | pv -qL 80
+sleep 1.2
+
+clear
+catimg logo.png -w 170 -c 
+
+bash moshterm.bash
+trap 2

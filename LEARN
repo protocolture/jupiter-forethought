@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+trap '' 2 
+ 
+echo "========================================================================" | pv -qL 90
+echo "Drake Legendary Education Analysis Ready-Now System (LEARN)" | pv -qL 90
+echo "------------------------------------------------------------------------" | pv -qL 90
+echo "Message of the Day" | pv -qL 90
+shuf -n 1 /mnt/c/Moshterm/Fallout3Terminal/motd.txt | fmt -w 72 | pv -qL 90
+echo
+echo 
+echo "========================================================================" | pv -qL 90
+echo "                        COMMAND LINE REFERENCE" | pv -qL 90
+echo "========================================================================" | pv -qL 90
+echo " COMMAND             USE              EXAMPLE                           " | pv -qL 90
+echo "========================================================================" | pv -qL 90
+echo " LEARN               This output      LEARN                             " | pv -qL 90
+echo "------------------------------------------------------------------------" | pv -qL 90
+echo " LOAD                Load a File      LOAD example.txt                  " | pv -qL 90
+echo "------------------------------------------------------------------------" | pv -qL 90
+echo " REBOOT              Restart System   REBOOT                            " | pv -qL 90
+echo "------------------------------------------------------------------------" | pv -qL 90
+echo " MOTD                Print MoTD       MOTD                              " | pv -qL 90
+echo "------------------------------------------------------------------------" | pv -qL 90
+echo
+echo 
+bash /mnt/c/Moshterm/Fallout3Terminal/prompt
+trap 2

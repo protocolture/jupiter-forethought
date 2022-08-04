@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+trap '' 2 
+clear
+echo $'					
+			____________  ___   _   _______ _____ 
+			|  _  \ ___ \/ _ \ | | / /  _  /  ___|
+			| | | | |_/ / /_\ \| |/ /| | | \ `--. 
+			| | | |    /|  _  ||    \| | | |`--. \
+			| |/ /| |\ \| | | || |\  \ \_/ /\__/ /
+			|___/ \_| \_\_| |_/\_| \_/\___/\____/ 
+' | pv -qL 500
+           
+echo "===================================================================================" | pv -qL 90
+echo "Drake Electronics Open Operating System DRAKOS 4.1 beta" | pv -qL 90
+echo "-----------------------------------------------------------------------------------" | pv -qL 90
+echo "Message of the Day" | pv -qL 90
+shuf -n 1 /mnt/c/Moshterm/Fallout3Terminal/motd.txt | fmt -w 83 | pv -qL 90
+echo "-----------------------------------------------------------------------------------" | pv -qL 90
+echo  
+echo  
+echo  
+echo -e "WELCOME spscwby" | pv -qL 90
+echo -e "Type LEARN for command reference" | pv -qL 90
+cd ~
+echo 
+sleep 1
+bash /mnt/c/Moshterm/Fallout3Terminal/prompt
+trap 2
