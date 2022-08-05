@@ -100,5 +100,5 @@ sleep 1.2
 clear
 catimg logo.png -w 170 -c 
 
-bash moshterm.bash
+bash ./mainmenu.bash
 trap 2

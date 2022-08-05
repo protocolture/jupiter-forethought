@@ -1,23 +1,28 @@
-#!/usr/bin/env bash
+#!/bin/bash
 trap '' 2 
+hname=$(head -n 1 ./hostname.txt)
+usrprompt="spscwby@"
+apos=":"
+cmdprompt=$usrprompt$hname$apos
 
-read -p "spscwby@localhost:" input
+
+read -p $cmdprompt input
 
 case $input in
 
 	"LEARN")
-		bash /mnt/c/Moshterm/Fallout3Terminal/LEARN 
+		bash ./LEARN 
 		;&
 	"LOAD")
-		bash /mnt/c/Moshterm/Fallout3Terminal/load 
+		bash ./load 
 		;&
 	"REBOOT")
 		sleep 2
-		bash /mnt/c/Moshterm/Fallout3Terminal/terminalscript
+		bash ./terminalscript
 		;&
 	"MOTD")
-		shuf -n 1 /mnt/c/Moshterm/Fallout3Terminal/motd.txt | fmt -w 83 | pv -qL 90
-		bash /mnt/c/Moshterm/Fallout3Terminal/prompt
+		shuf -n 1 ./motd.txt | fmt -w 83 | pv -qL 90
+		bash prompt
 		;&
 	"DISINTEGRATE")
 		exit 1
@@ -25,7 +30,7 @@ case $input in
 	*)
 		echo -e "COMMAND UNRECOGNISED" | pv -qL 90
 		sleep 2
-		bash /mnt/c/Moshterm/Fallout3Terminal/prompt
+		bash ./prompt
 		;;
 esac
 trap 2

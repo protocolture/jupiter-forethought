@@ -23,5 +23,5 @@ echo " MOTD                Print MoTD       MOTD                              " 
 echo "------------------------------------------------------------------------" | pv -qL 90
 echo
 echo 
-bash /mnt/c/Moshterm/Fallout3Terminal/prompt
+bash ./prompt
 trap 2
