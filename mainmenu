@@ -72,6 +72,7 @@ case $input in
 		;&
 	*)
 		echo -e "COMMAND UNRECOGNISED" | pv -qL 90
+		aplay -q UI_Terminal_Holotape_ProgramQuit_02.wav
 		sleep 2
 		prompt
 		;;
@@ -173,6 +174,7 @@ echo
 echo -e $shipname Command Line Interface
 echo  
 echo -e "WELCOME spscwby" | pv -qL 90
+aplay -q UI_Terminal_Holotape_ProgramQuit_01.wav
 echo -e "Type LEARN for command reference" | pv -qL 90
 echo 
 sleep 1
@@ -290,8 +292,8 @@ sleep 1.2
 
 clear
 catimg ./logo.png -w 170 -c 
-
-sleep 5
+aplay -q UI_Terminal_Holotape_ProgramLoad_01.wav
+sleep 3
 
 mainmenu
 
@@ -558,7 +560,7 @@ case $input in
 		echo "WARNING: USER RUNNNING AS ROOT" | pv -qL 90
 		sleep 0.6
 		echo
-		aplay -q ./ui_hacking_passgood.wav
+		aplay -q ./UI_Hacking_PassGood.wav
 		root=yes
 		rootprompt
 		;&
@@ -566,14 +568,14 @@ case $input in
 		echo "NICE TRY MR HYDE" | pv -qL 90
 		sleep 0.6
 		echo
-		./ui_hacking_passbad.wav
+		aplay -q ./UI_Hacking_PassBad.wav
 		prompt
 		;&
 	"PASCAL")
 		echo "NICE TRY COWBOY" | pv -qL 90
 		sleep 0.6
 		echo
-		./ui_hacking_passbad.wav
+		aplay -q ./UI_Hacking_PassBad.wav
 		prompt
 		;&
 	"DISINTEGRATE")
@@ -582,7 +584,7 @@ case $input in
 	*)
 		echo -e "INCORRECT PASSWORD" | pv -qL 90
 		sleep 2
-		./ui_hacking_passbad.wav
+		aplay -q ./UI_Hacking_PassBad.wav
 		prompt
 		;;
 
