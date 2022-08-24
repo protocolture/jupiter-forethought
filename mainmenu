@@ -4,15 +4,13 @@
 ##################################################################
 hname=$(head -n 1 hostname.txt)
 motd=$(shuf -n 1 motd.txt)
-usrprompt="spscwby@"
-usrname="spscwby"
-newline="\n"
-delimiter=">"
-apos=":"
+
+source ./variables.sh
 ##################################################################
 ##################################################################
 prompt()
 {
+source ./variables.sh
 ##CODE FOR MAIN PROMPT
 trap '' 2 
 
@@ -39,8 +37,23 @@ case $input in
 	"SEND")
 		send-msg
 		;&
+	"ATMO")
+		atmo
+		;&
+	"LOG")
+		log
+		;&
 	"REBOOT")
 		boot
+		;&
+	"DATE")
+		shipdate
+		;&
+	"TIME")
+		shiptime
+		;&
+	"SEARCH")
+		search
 		;&
 	"DISINTEGRATE")
 		exit 1
@@ -77,7 +90,7 @@ echo "Message of the Day" | pv -qL 90
 echo $motd | fmt -w 83 | pv -qL 90
 echo "-----------------------------------------------------------------------------------" | pv -qL 90
 echo  
-echo  
+echo -e $shipname Command Line Interface
 echo  
 echo -e "WELCOME spscwby" | pv -qL 90
 echo -e "Type LEARN for command reference" | pv -qL 90
@@ -224,6 +237,8 @@ echo " REBOOT                 Restart System           REBOOT                   
 echo "-----------------------------------------------------------------------------------" | pv -qL 90
 echo " MOTD                   Print MoTD               MOTD                              " | pv -qL 90
 echo "-----------------------------------------------------------------------------------" | pv -qL 90
+echo " ATMO                   Print Atmospheric Info   ATMO                              " | pv -qL 90
+echo "-----------------------------------------------------------------------------------" | pv -qL 90
 echo
 echo 
 prompt
@@ -253,6 +268,130 @@ read -p "Please Enter Message:" msg
 newmsg=$usrname$delimiter$msg
 echo $newmsg >> ./mail.txt
 read-msg 
+}
+##################################################################
+atmo()
+{
+##################################################################
+## ATMO
+source ./atmo.sh
+
+echo "===================================================================================" | pv -qL 90
+echo "Internal Atmosphere Composition" | pv -qL 90
+echo "===================================================================================" | pv -qL 90
+echo
+sleep 0.6
+if [ $nitrogen -gt 0 ]
+then
+	echo Nitrogen: $nitrogen | pv -qL 80
+	sleep 0.6
+	echo
+fi
+if [ $oxygen -gt 0 ]
+then
+	echo Oxygen: $oxygen | pv -qL 80
+	sleep 0.6
+	echo
+fi
+if [ $oxygen -gt 80 ]
+then
+	echo Warning: Oxygen Concentration is too high! | pv -qL 80
+	sleep 0.6
+	echo
+fi
+if [ $diazomethane -gt 0 ]
+then
+	echo DiazoMethane: $diazomethane | pv -qL 80
+	sleep 0.6
+	echo Warning DiazoMethane is a dangerous gas! | pv -qL 80
+	sleep 0.6
+	echo
+fi
+if [ $chlorine -gt 0 ]
+then
+	echo Chlorine: $chlorine | pv -qL 80
+	sleep 0.6
+	echo Warning Chlorine is a dangerous gas! | pv -qL 80
+	sleep 0.6
+	echo
+fi
+if [ $other -gt 0 ]
+then
+	echo Other: $other | pv -qL 80
+	sleep 0.6
+	echo
+fi
+prompt
+}
+##################################################################
+log()
+{
+##################################################################
+## LOG
+source ./log.sh
+echo "===================================================================================" | pv -qL 90
+echo "Displaying Local Computer Core Log Items" | pv -qL 90
+echo "===================================================================================" | pv -qL 90
+echo
+sleep 0.6
+echo $logitem1date                               $logitem1 | pv -qL 90
+echo
+sleep 0.6
+echo $logitem2date                               $logitem2 | pv -qL 90
+echo
+sleep 0.6
+echo $logitem3date                               $logitem3 | pv -qL 90
+echo
+sleep 0.6
+echo $logitem4date                               $logitem4 | pv -qL 90
+echo
+sleep 0.6
+echo $logitem5date                               $logitem5 | pv -qL 90
+echo
+sleep 0.6
+prompt
+}
+shipdate()
+{
+##################################################################
+## DATE
+echo $shipdatevar
+prompt
+}
+##################################################################
+shiptime()
+{
+##################################################################
+## Time
+echo $shiptimevar
+prompt
+}
+shipstatus()
+{
+##################################################################
+## Time
+echo $shiptimevar
+prompt
+}
+##################################################################
+search()
+{
+##################################################################
+## Search
+echo "===================================================================================" | pv -qL 90
+echo "Welcome to SEARCH" | pv -qL 90
+echo "===================================================================================" | pv -qL 90
+echo "WARNING: Main Computer Core Offline." | pv -qL 90
+sleep 0.6
+echo
+echo "Search Function will use Wikipedia Text Only Knowledgebase as backup" | pv -qL 90
+echo
+sleep 0.6
+read -p "Search Term: " searchinput
+searchreturn=$(wikipedia2text $searchinput)
+echo "$searchreturn" | pv -qL 90
+
+prompt
 }
 ##################################################################
 mainmenu
