@@ -356,7 +356,10 @@ load-data()
 ##################################################################
 ##LOAD 
 aplay -q ./UI_Hacking_PasswordHelpAttempts.wav
+source ./filesystem.sh
+ls maindir
 echo
+prompt
 }
 ##################################################################
 read-msg()
