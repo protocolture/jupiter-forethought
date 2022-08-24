@@ -2,5 +2,5 @@
 
 #LAB
 
-dir="set1"
-rootdir="rootset"
+maindir="./set1"
+rootdir="./rootset"

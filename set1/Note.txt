@@ -1,0 +1,5 @@
+The Fire Control System automagically vents any compartment where it detects a fire into space. 
+
+It wont run without power. 
+
+It can be made to run if you have officer clearance. Never seen it work. 

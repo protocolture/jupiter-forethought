@@ -25,7 +25,10 @@ case $input in
 		learn
 		;&
 	"LOAD")
-		load 
+		load-data
+		;&
+	"IMAGE")
+		image
 		;&
 	"MOTD")
 		echo $motd | fmt -w 83 | pv -qL 90
@@ -357,8 +360,83 @@ load-data()
 ##LOAD 
 aplay -q ./UI_Hacking_PasswordHelpAttempts.wav
 source ./filesystem.sh
-ls maindir
+files=($maindir/*.txt)
+x=0
+echo "-------------------------------------------------" | pv -qL 90
+echo "NUMBER   |     Filename                          " | pv -qL 90
+echo "-------------------------------------------------" | pv -qL 90
+for t in ${files[@]}; do
+echo "-------------------------------------------------" | pv -qL 90
+echo "$x        $t"                         | pv -qL 90
+x=$((x+1))
+done
+echo "-------------------------------------------------" | pv -qL 90
 echo
+read -p "Please Select " selection
+y=$((x+1))
+
+if [ $selection -lt $x ]
+then
+	echo "Loading File"
+	echo "----------------------------------"  | pv -qL 90
+	echo
+	cat "${files[$selection]}" | pv -qL 90
+	echo
+	echo
+fi
+if [ $selection -eq $x ]
+then
+	echo "Incorrect Selection"
+fi
+if [ $selection -gt $x ]
+then
+	echo "Incorrect Selection"
+fi
+
+	
+prompt
+}
+
+image()
+{
+##################################################################
+##LOAD IMAGE
+aplay -q ./UI_Hacking_PasswordHelpAttempts.wav
+source ./filesystem.sh
+files=($maindir/*.gif)
+x=0
+echo "-------------------------------------------------" | pv -qL 90
+echo "NUMBER   |     Filename                          " | pv -qL 90
+echo "-------------------------------------------------" | pv -qL 90
+for t in ${files[@]}; do
+echo "-------------------------------------------------" | pv -qL 90
+echo "$x        $t"                         | pv -qL 90
+x=$((x+1))
+done
+echo "-------------------------------------------------" | pv -qL 90
+echo
+read -p "Please Select " selection
+y=$((x+1))
+
+if [ $selection -lt $x ]
+then
+	echo "Loading File"
+	echo "----------------------------------"  | pv -qL 90
+	echo
+	catimg -w 120 -l 4 "${files[$selection]}"
+	echo
+	echo
+fi
+if [ $selection -eq $x ]
+then
+	echo "Incorrect Selection"
+fi
+if [ $selection -gt $x ]
+then
+	echo "Incorrect Selection"
+fi
+
+	
 prompt
 }
 ##################################################################
