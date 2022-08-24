@@ -163,7 +163,7 @@ echo $'
 			| |/ /| |\ \| | | || |\  \ \_/ /\__/ /
 			|___/ \_| \_\_| |_/\_| \_/\___/\____/ 
 ' | pv -qL 500
-           
+aplay -q UI_Terminal_Holotape_ProgramLoad_01.wav           
 echo "===================================================================================" | pv -qL 90
 echo "Drake Electronics Open Operating System DRAKOS 4.1 beta" | pv -qL 90
 echo "-----------------------------------------------------------------------------------" | pv -qL 90
@@ -191,8 +191,10 @@ trap '' 2
 #some random aesthetic startup junk
 
 clear
+aplay -q ./UI_Hacking_PasswordHelpAttempts.wav
 echo Initializing BIOS | pv -qL 80
 sleep 0.4
+aplay -q UI_Terminal_Holotape_ProgramLoad_01.wav
 echo WARNING: BIOS DOES NOT MATCH CALLISTO II BIOS HASH | pv -qL 80
 sleep 0.6
 echo CONTINUE BOOT AT OWN RISK | pv -qL 80
@@ -305,7 +307,7 @@ learn()
 ##################################################################
 ## LEARN
 trap '' 2 
- 
+aplay -q ./UI_Hacking_PasswordHelpAttempts.wav
 echo "===================================================================================" | pv -qL 90
 echo "Drake Legendary Education Analysis Ready-Now System (LEARN)" | pv -qL 90
 echo "-----------------------------------------------------------------------------------" | pv -qL 90
@@ -353,6 +355,7 @@ load-data()
 {
 ##################################################################
 ##LOAD 
+aplay -q ./UI_Hacking_PasswordHelpAttempts.wav
 echo
 }
 ##################################################################
@@ -360,6 +363,7 @@ read-msg()
 {
 ##################################################################
 ## READ 
+aplay -q ./UI_Hacking_PasswordHelpAttempts.wav
 cat ./mail.txt
 prompt
 }
@@ -368,6 +372,7 @@ send-msg()
 {
 ##################################################################
 ## SEND MESSAGE
+aplay -q ./UI_Hacking_PasswordHelpAttempts.wav
 read -p "Please Enter Message:" msg
 newmsg=$usrname$delimiter$msg
 echo $newmsg >> ./mail.txt
@@ -379,7 +384,7 @@ atmo()
 ##################################################################
 ## ATMO
 source ./atmo.sh
-
+aplay -q ./UI_Hacking_PasswordHelpAttempts.wav
 echo "===================================================================================" | pv -qL 90
 echo "Internal Atmosphere Composition" | pv -qL 90
 echo "===================================================================================" | pv -qL 90
@@ -433,6 +438,7 @@ log()
 {
 ##################################################################
 ## LOG
+aplay -q ./UI_Hacking_PasswordHelpAttempts.wav
 source ./log.sh
 echo "===================================================================================" | pv -qL 90
 echo "Displaying Local Computer Core Log Items" | pv -qL 90
@@ -460,6 +466,7 @@ shipdate()
 {
 ##################################################################
 ## DATE
+aplay -q ./UI_Hacking_PasswordHelpAttempts.wav
 echo $shipdatevar
 prompt
 }
@@ -468,7 +475,9 @@ shiptime()
 {
 ##################################################################
 ## Time
+aplay -q ./UI_Hacking_PasswordHelpAttempts.wav
 echo $shiptimevar
+
 prompt
 }
 shipstatus()
@@ -476,6 +485,7 @@ shipstatus()
 ##################################################################
 ## Ship Status
 source ./shipstatus.sh
+aplay -q ./UI_Hacking_PasswordHelpAttempts.wav
 echo "===================================================================================" | pv -qL 90
 echo "Welcome to STATUS" | pv -qL 90
 echo "===================================================================================" | pv -qL 90
@@ -489,6 +499,7 @@ search()
 {
 ##################################################################
 ## Search
+aplay -q ./UI_Hacking_PasswordHelpAttempts.wav
 echo "===================================================================================" | pv -qL 90
 echo "Welcome to SEARCH" | pv -qL 90
 echo "===================================================================================" | pv -qL 90
@@ -510,6 +521,7 @@ lab()
 ##################################################################
 ## LAB
 source ./lab.sh
+aplay -q ./UI_Hacking_PasswordHelpAttempts.wav
 echo "===================================================================================" | pv -qL 90
 echo "Welcome to LAB" | pv -qL 90
 echo "===================================================================================" | pv -qL 90
@@ -533,6 +545,7 @@ locate()
 ##################################################################
 ## LOCATE
 source ./locate.sh
+aplay -q ./UI_Hacking_PasswordHelpAttempts.wav
 echo "===================================================================================" | pv -qL 90
 echo "Welcome to LOCATE" | pv -qL 90
 echo "===================================================================================" | pv -qL 90
@@ -560,7 +573,7 @@ case $input in
 		echo "WARNING: USER RUNNNING AS ROOT" | pv -qL 90
 		sleep 0.6
 		echo
-		aplay -q ./UI_Hacking_PassGood.wav
+		aplay -q ./ui_hacking_passgood.wav 
 		root=yes
 		rootprompt
 		;&
@@ -568,14 +581,14 @@ case $input in
 		echo "NICE TRY MR HYDE" | pv -qL 90
 		sleep 0.6
 		echo
-		aplay -q ./UI_Hacking_PassBad.wav
+		aplay -q ./ui_hacking_passbad.wav  
 		prompt
 		;&
 	"PASCAL")
 		echo "NICE TRY COWBOY" | pv -qL 90
 		sleep 0.6
 		echo
-		aplay -q ./UI_Hacking_PassBad.wav
+		aplay -q ./ui_hacking_passbad.wav  
 		prompt
 		;&
 	"DISINTEGRATE")
@@ -584,7 +597,7 @@ case $input in
 	*)
 		echo -e "INCORRECT PASSWORD" | pv -qL 90
 		sleep 2
-		aplay -q ./UI_Hacking_PassBad.wav
+		aplay -q ./ui_hacking_passbad.wav  
 		prompt
 		;;
 
