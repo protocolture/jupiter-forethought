@@ -43,6 +43,9 @@ case $input in
 	"LOG")
 		log
 		;&
+	"LAB")
+		lab
+		;&
 	"REBOOT")
 		boot
 		;&
@@ -54,6 +57,12 @@ case $input in
 		;&
 	"SEARCH")
 		search
+		;&
+	"STATUS")
+		shipstatus
+		;&
+	"LOCATE")
+		locate
 		;&
 	"DISINTEGRATE")
 		exit 1
@@ -233,11 +242,27 @@ echo " LEARN                  This output              LEARN                    
 echo "-----------------------------------------------------------------------------------" | pv -qL 90
 echo " LOAD                   Load a File              LOAD example.txt                  " | pv -qL 90
 echo "-----------------------------------------------------------------------------------" | pv -qL 90
-echo " REBOOT                 Restart System           REBOOT                            " | pv -qL 90
+echo " REBOOT                 Restart Terminal         REBOOT                            " | pv -qL 90
 echo "-----------------------------------------------------------------------------------" | pv -qL 90
 echo " MOTD                   Print MoTD               MOTD                              " | pv -qL 90
 echo "-----------------------------------------------------------------------------------" | pv -qL 90
-echo " ATMO                   Print Atmospheric Info   ATMO                              " | pv -qL 90
+echo " LOG                    Print System Log         LOG                               " | pv -qL 90
+echo "-----------------------------------------------------------------------------------" | pv -qL 90
+echo " LAB                    Print LAB Output         LAB                               " | pv -qL 90
+echo "-----------------------------------------------------------------------------------" | pv -qL 90
+echo " DATE                   Print SYSTEM DATE        DATE                              " | pv -qL 90
+echo "-----------------------------------------------------------------------------------" | pv -qL 90
+echo " TIME                   Print SYSTEM TIME        TIME                              " | pv -qL 90
+echo "-----------------------------------------------------------------------------------" | pv -qL 90
+echo " SEARCH                 SEARCH COMPUTER ARCHIVE  When prompted provide search term " | pv -qL 90
+echo "-----------------------------------------------------------------------------------" | pv -qL 90
+echo " LOCATE                 LOCATE THIS TERMINAL     LOCATE                            " | pv -qL 90
+echo "-----------------------------------------------------------------------------------" | pv -qL 90
+echo " STATUS                 RETURN SHIP STATUS       STATUS                            " | pv -qL 90
+echo "-----------------------------------------------------------------------------------" | pv -qL 90
+echo " READ                   READ SHIP MESSAGEBOARD   READ                              " | pv -qL 90
+echo "-----------------------------------------------------------------------------------" | pv -qL 90
+echo " SEND                   UPDATE SHIP MESSAGEBOARD When prompted, type message.    " | pv -qL 90
 echo "-----------------------------------------------------------------------------------" | pv -qL 90
 echo
 echo 
@@ -369,8 +394,14 @@ prompt
 shipstatus()
 {
 ##################################################################
-## Time
-echo $shiptimevar
+## Ship Status
+source ./shipstatus.sh
+echo "===================================================================================" | pv -qL 90
+echo "Welcome to STATUS" | pv -qL 90
+echo "===================================================================================" | pv -qL 90
+sleep 0.6
+echo
+echo "$currentshipstatus" | pv -qL 90
 prompt
 }
 ##################################################################
@@ -391,6 +422,49 @@ read -p "Search Term: " searchinput
 searchreturn=$(wikipedia2text $searchinput)
 echo "$searchreturn" | pv -qL 90
 
+prompt
+}
+##################################################################
+lab()
+{
+##################################################################
+## LAB
+source ./lab.sh
+echo "===================================================================================" | pv -qL 90
+echo "Welcome to LAB" | pv -qL 90
+echo "===================================================================================" | pv -qL 90
+sleep 0.6
+echo "WARNING: Main Computer Core Offline." | pv -qL 90
+sleep 0.6
+echo "LAB Results will not be stored." | pv -qL 90
+sleep 0.6
+echo
+echo "LAB STATUS:" | pv -qL 90
+sleep 0.6
+echo
+echo "$labresult" | pv -qL 90
+sleep 0.6
+echo
+prompt
+}
+##################################################################
+locate()
+{
+##################################################################
+## LOCATE
+source ./locate.sh
+echo "===================================================================================" | pv -qL 90
+echo "Welcome to LOCATE" | pv -qL 90
+echo "===================================================================================" | pv -qL 90
+sleep 0.6
+echo "WARNING: Main Computer Core Offline." | pv -qL 90
+sleep 0.6
+echo "LOCATION results may not be accurate." | pv -qL 90
+sleep 0.6
+echo
+echo "$location" | pv -qL 90
+sleep 0.6
+echo
 prompt
 }
 ##################################################################
