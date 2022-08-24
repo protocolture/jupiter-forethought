@@ -4,6 +4,7 @@
 ##################################################################
 hname=$(head -n 1 hostname.txt)
 motd=$(shuf -n 1 motd.txt)
+declare -i ultrauser=0
 
 source ./variables.sh
 ##################################################################
@@ -14,8 +15,15 @@ source ./variables.sh
 ##CODE FOR MAIN PROMPT
 trap '' 2 
 
+if [ ultrauser -eq 0 ]
+then
 cmdprompt=$usrprompt$hname$apos
+fi
 
+if [ ultrauser -eq 1 ]
+then
+cmdprompt=root@$hname$apos
+fi
 
 read -p $cmdprompt input
 
