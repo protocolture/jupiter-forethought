@@ -199,6 +199,7 @@ echo USE OF NON STANDARD BIOS VIOLATES SOFTWARE AGREEMENT | pv -qL 80
 sleep 0.6
 echo SOLAR HARDWARE NOT RESPONSIBLE FOR DAMAGE OR DEATH | pv -qL 80
 sleep 0.8
+aplay UI_Terminal_Holotape_ProgramLoad_01.wav
 echo -e "\e[4AW#RNING: BI@S DOES NOT MATCH C@LL1STO II BOIS HASH" | pv -qL 80
 
 echo -e "CONTIP*E BONT AT O5N RISK" | pv -qL 80
@@ -207,6 +208,7 @@ echo -e "URE 1F N*N STA*DARD B8OS VIOL(TES SOFTWARE AGR3EME^T" | pv -qL 80
 
 echo -e "SOKAR H@RD#ARE NOT RESPO7SIBLE FOR DEMAGE OR D%ATH" | pv -qL 80
 sleep 0.4
+aplay UI_Terminal_Holotape_ProgramLoad_02.wav
 echo -e "\e[4AW#R.ING= B*@S D*eS N%T M@TqH C@Ll1!TO %& B.IS H+SH" | pv -qL 80
 
 echo -e "CO*T+P*E BO!T AT O5N R*SK" | pv -qL 80
@@ -215,6 +217,7 @@ echo -e "U!E 1F N*N STA*D+RD B8OS V*OL(T$S SOFTWARE AGR3EME^T" | pv -qL 80
 
 echo -e "S0*AR H@$D#!RE NOT RE+PO7SI*LE F+R DEM!GE @R D%ATH" | pv -qL 80
 sleep 0.4
+aplay UI_Terminal_Holotape_ProgramLoad_03.wav
 echo -e "\e[4AW#R.ING= B*@? D*eS N%T }@TqH C@Ll1!T+ %& B.I< H+SH" | pv -qL 80
 
 echo -e ":o*?+P*E BO!T AT O5N R*SK" | pv -qL 80
@@ -223,6 +226,7 @@ echo -e "U!E 1F N*N S>A*}+RD B8OS V*OL(T$S S<FT?AR< {GR3EME^T" | pv -qL 80
 
 echo -e "S0*AR H@$D#!RE N{T RE+PO7SI*L? F+R DEM!GE @R D%ATH" | pv -qL 80
 sleep 0.4
+aplay UI_Terminal_Holotape_ProgramLoad_01.wav
 echo -e "\e[4A****************************************************************" | pv -qL 80
 
 echo -e "********************BIOS SECURITY OVERWRITTEN*******************" | pv -qL 80
@@ -231,7 +235,7 @@ echo -e "****************************************************************" | pv 
 
 echo -e "****************************************************************" | pv -qL 80
 sleep 0.8
-
+aplay UI_Terminal_Holotape_ProgramQuit_02.wav
 clear
 echo -ne "Initializing boot.\r" | pv -qL 80
 sleep 0.4
@@ -247,6 +251,7 @@ echo Hardware Detect  | pv -qL 80
 sleep 0.6
 echo Solar Hardware Callisto II  | pv -qL 80
 sleep 0.4
+aplay UI_Terminal_Holotape_ProgramLoad_01.wav
 echo -ne "MEMTEST\r"  | pv -qL 80
 sleep 0.6
 
@@ -258,7 +263,7 @@ sleep 0.6
 
 echo -ne "MEMTEST [XX......]\r" | pv -qL 80
 sleep 0.6
-
+aplay UI_Terminal_Holotape_ProgramLoad_01.wav
 echo -ne "MEMTEST [XXX.....]\r" | pv -qL 80
 sleep 0.6
 
@@ -273,9 +278,9 @@ sleep 0.6
 
 echo -ne "MEMTEST [XXXXXXX.]\r" | pv -qL 80
 sleep 0.6
-
+aplay UI_Terminal_Holotape_ProgramLoad_01.wav
 echo -ne "MEMTEST [XXXXXXXX]\r" | pv -qL 80
-sleep 0.6
+sleep 2
 
 echo -e "MEMTEST Complete     " | pv -qL 80
 sleep 0.6
@@ -303,6 +308,7 @@ echo "==========================================================================
 echo "Drake Legendary Education Analysis Ready-Now System (LEARN)" | pv -qL 90
 echo "-----------------------------------------------------------------------------------" | pv -qL 90
 echo
+aplay UI_Terminal_Holotape_ProgramLoad_02.wav
 echo 
 echo "===================================================================================" | pv -qL 90
 echo "                        COMMAND LINE REFERENCE" | pv -qL 90
@@ -376,6 +382,7 @@ echo "==========================================================================
 echo "Internal Atmosphere Composition" | pv -qL 90
 echo "===================================================================================" | pv -qL 90
 echo
+aplay UI_Terminal_Holotape_ProgramLoad_01.wav
 sleep 0.6
 if [ $nitrogen -gt 0 ]
 then
@@ -547,23 +554,26 @@ read -p "ENTER ROOT PASSWORD: " input
 
 case $input in
 
-	"LOCATE")
+	"STEVENSON")
 		echo "WARNING: USER RUNNNING AS ROOT" | pv -qL 90
 		sleep 0.6
 		echo
+		aplay ./ui_hacking_passgood.wav
 		root=yes
 		rootprompt
 		;&
-	"DRAKE")
-		echo "NICE TRY COWBOY" | pv -qL 90
+	"JEKYLL")
+		echo "NICE TRY MR HYDE" | pv -qL 90
 		sleep 0.6
 		echo
+		./ui_hacking_passbad.wav
 		prompt
 		;&
 	"PASCAL")
 		echo "NICE TRY COWBOY" | pv -qL 90
 		sleep 0.6
 		echo
+		./ui_hacking_passbad.wav
 		prompt
 		;&
 	"DISINTEGRATE")
@@ -572,6 +582,7 @@ case $input in
 	*)
 		echo -e "INCORRECT PASSWORD" | pv -qL 90
 		sleep 2
+		./ui_hacking_passbad.wav
 		prompt
 		;;
 
@@ -581,3 +592,10 @@ sleep 0.6
 }
 ##################################################################
 mainmenu
+
+
+##################################
+####TODO
+####
+####VENT GAS
+####DISABLE POWER
