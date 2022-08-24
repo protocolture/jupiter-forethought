@@ -4,9 +4,11 @@
 ##################################################################
 hname=$(head -n 1 hostname.txt)
 motd=$(shuf -n 1 motd.txt)
-declare -i ultrauser=0
 
 source ./variables.sh
+cmdprompt=$usrprompt$hname$apos
+rootcmdprompt="root@$hname$apos"
+root=no
 ##################################################################
 ##################################################################
 prompt()
@@ -15,17 +17,78 @@ source ./variables.sh
 ##CODE FOR MAIN PROMPT
 trap '' 2 
 
-if [ ultrauser -eq 0 ]
-then
-cmdprompt=$usrprompt$hname$apos
-fi
-
-if [ ultrauser -eq 1 ]
-then
-cmdprompt=root@$hname$apos
-fi
-
 read -p $cmdprompt input
+
+case $input in
+
+	"LEARN")
+		learn
+		;&
+	"LOAD")
+		load 
+		;&
+	"MOTD")
+		echo $motd | fmt -w 83 | pv -qL 90
+		prompt
+		;&
+	"READ")
+		read-msg
+		;&
+	"SEND")
+		send-msg
+		;&
+	"ATMO")
+		atmo
+		;&
+	"LOG")
+		log
+		;&
+	"LAB")
+		lab
+		;&
+	"REBOOT")
+		boot
+		;&
+	"DATE")
+		shipdate
+		;&
+	"TIME")
+		shiptime
+		;&
+	"SEARCH")
+		search
+		;&
+	"STATUS")
+		shipstatus
+		;&
+	"LOCATE")
+		locate
+		;&
+	"ESCALATE")
+		escalate
+		;&
+	"DISINTEGRATE")
+		exit 1
+		;&
+	*)
+		echo -e "COMMAND UNRECOGNISED" | pv -qL 90
+		sleep 2
+		prompt
+		;;
+esac
+trap 2
+
+}
+##################################################################
+##################################################################
+rootprompt()
+{
+source ./variables.sh
+##CODE FOR MAIN PROMPT
+trap '' 2 
+
+
+read -p $rootcmdprompt input
 
 case $input in
 
@@ -474,6 +537,47 @@ echo "$location" | pv -qL 90
 sleep 0.6
 echo
 prompt
+}
+escalate()
+{
+##################################################################
+## ESCALATE Privs
+
+read -p "ENTER ROOT PASSWORD: " input
+
+case $input in
+
+	"LOCATE")
+		echo "WARNING: USER RUNNNING AS ROOT" | pv -qL 90
+		sleep 0.6
+		echo
+		root=yes
+		rootprompt
+		;&
+	"DRAKE")
+		echo "NICE TRY COWBOY" | pv -qL 90
+		sleep 0.6
+		echo
+		prompt
+		;&
+	"PASCAL")
+		echo "NICE TRY COWBOY" | pv -qL 90
+		sleep 0.6
+		echo
+		prompt
+		;&
+	"DISINTEGRATE")
+		exit 1
+		;&
+	*)
+		echo -e "INCORRECT PASSWORD" | pv -qL 90
+		sleep 2
+		prompt
+		;;
+
+esac
+sleep 0.6
+
 }
 ##################################################################
 mainmenu

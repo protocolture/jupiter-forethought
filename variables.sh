@@ -7,7 +7,7 @@ usrname="spscwby"
 newline="\n"
 delimiter=">"
 apos=":"
-shipname="NCS DEMETRIUS"
+shipname="NCS GRISAPOL"
 shipdatevar="01//01/1970"
 shiptimevar="00:00:00"
 
