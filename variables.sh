@@ -2,8 +2,7 @@
 
 #mainvariables
 state=1
-usrprompt="spscwby@"
-usrname="spscwby"
+usrprompt="@"
 newline="\n"
 delimiter=">"
 apos=":"

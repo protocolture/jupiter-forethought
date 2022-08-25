@@ -4,15 +4,15 @@
 ##################################################################
 hname=$(head -n 1 hostname.txt)
 motd=$(shuf -n 1 motd.txt)
-
+usrname="spscwby"
 source ./variables.sh
-cmdprompt=$usrprompt$hname$apos
-rootcmdprompt="root@$hname$apos"
 root=no
 ##################################################################
 ##################################################################
 prompt()
 {
+
+cmdprompt=$usrname$usrprompt$hname$apos
 source ./variables.sh
 ##CODE FOR MAIN PROMPT
 trap '' 2 
@@ -85,72 +85,6 @@ trap 2
 }
 ##################################################################
 ##################################################################
-rootprompt()
-{
-source ./variables.sh
-##CODE FOR MAIN PROMPT
-trap '' 2 
-
-
-read -p $rootcmdprompt input
-
-case $input in
-
-	"LEARN")
-		learn
-		;&
-	"LOAD")
-		load 
-		;&
-	"MOTD")
-		echo $motd | fmt -w 83 | pv -qL 90
-		prompt
-		;&
-	"READ")
-		read-msg
-		;&
-	"SEND")
-		send-msg
-		;&
-	"ATMO")
-		atmo
-		;&
-	"LOG")
-		log
-		;&
-	"LAB")
-		lab
-		;&
-	"REBOOT")
-		boot
-		;&
-	"DATE")
-		shipdate
-		;&
-	"TIME")
-		shiptime
-		;&
-	"SEARCH")
-		search
-		;&
-	"STATUS")
-		shipstatus
-		;&
-	"LOCATE")
-		locate
-		;&
-	"DISINTEGRATE")
-		exit 1
-		;&
-	*)
-		echo -e "COMMAND UNRECOGNISED" | pv -qL 90
-		sleep 2
-		prompt
-		;;
-esac
-trap 2
-
-}
 ##################################################################
 mainmenu ()
 {
@@ -670,7 +604,7 @@ case $input in
 		echo
 		aplay -q ./ui_hacking_passgood.wav 
 		root=yes
-		rootprompt
+		prompt
 		;&
 	"JEKYLL")
 		echo "NICE TRY MR HYDE" | pv -qL 90
