@@ -595,7 +595,7 @@ escalate()
 ## ESCALATE Privs
 
 read -p "ENTER DESIRED USERNAME: " ninput
-case ninput in 
+case $ninput in 
 			"root")
 				read -p "ENTER PASSWORD: " input
 				case $input in
@@ -607,7 +607,7 @@ case ninput in
 						aplay -q ./ui_hacking_passgood.wav 
 						root=yes
 						usrname="root"
-						prompt
+						mainmenu
 						;&
 					"JEKYLL")
 						echo "NICE TRY MR HYDE" | pv -qL 90
@@ -618,6 +618,13 @@ case ninput in
 						;&
 					"HYDE")
 						echo "NICE TRY DR JEKYLL" | pv -qL 90
+						sleep 0.6
+						echo
+						aplay -q ./ui_hacking_passbad.wav  
+						prompt
+						;&
+					"HINT")
+						echo "WHO IS THE AUTHOR OF THE GRISAPOLS DEMISE" | pv -qL 90
 						sleep 0.6
 						echo
 						aplay -q ./ui_hacking_passbad.wav  
@@ -642,6 +649,14 @@ case ninput in
 						echo
 						aplay -q ./ui_hacking_passgood.wav 
 						usrname="maint"
+						root=no
+						mainmenu
+						;&
+					"HINT")
+						echo "UNDER THE COUCH" | pv -qL 90
+						sleep 0.6
+						echo
+						aplay -q ./ui_hacking_passbad.wav  
 						prompt
 						;&
 					"DISINTEGRATE")
@@ -653,14 +668,14 @@ case ninput in
 						aplay -q ./ui_hacking_passbad.wav  
 						prompt
 						;;
-					esac
+				esac
 			;&
 			"spscwby")
 				echo -e "WELCOME BACK" | pv -qL 90
 				usrname="spscwby"
-				prompt
-				;;
-			;&
+				root=no
+				mainmenu
+				;&
 			*)
 				echo -e "Not Recognised" | pv -qL 90
 				sleep 2
