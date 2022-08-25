@@ -1,0 +1,9 @@
+==========================================================================
+			MGMT Notes
+==========================================================================
+
+* Issued warning to staff regarding the proper use of computer systems
+--We will no longer tolerate the system being used to send silly videos
+
+* Advised IT to hold off on updating cryopod firmware until after we test 
+--Recycling system changes might be more resource intensive. 

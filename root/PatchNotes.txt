@@ -1,0 +1,13 @@
+============================================================================================
+				CryoPodOS
+============================================================================================
+
+Latest Build: Version 1.5.2
+
+* Fixed issue with Cryo Pods not opening if they have been running for more than 65536 years. 
+
+* Resolved CVE 2170-22342 allowing arbitrary code execution on CryoPod
+
+* Fixed issue with CryoPods segfaulting when opened and not removing tubes from customer.
+
+* Improved behaviour of recycling system, was randomly feeding waste back to customers unprocessed. 
