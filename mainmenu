@@ -30,6 +30,9 @@ case $input in
 	"IMAGE")
 		image
 		;&
+	"IMAGE")
+		audio
+		;&
 	"MOTD")
 		echo $motd | fmt -w 83 | pv -qL 90
 		prompt
@@ -403,6 +406,59 @@ then
 	echo
 	echo "${files[$selection]}" >> ./$usrname/history.txt
 	catimg -w 120 -l 4 "${files[$selection]}"
+	echo
+	echo
+	echo
+fi
+if [ $selection -eq $x ]
+then
+	echo "Incorrect Selection"
+fi
+if [ $selection -gt $x ]
+then
+	echo "Incorrect Selection"
+fi
+	
+prompt
+}
+audio()
+{
+##################################################################
+##LOAD IMAGE
+aplay -q ./UI_Hacking_PasswordHelpAttempts.wav
+source ./filesystem.sh
+files=($usrname/*.mp3)
+x=0
+echo "-------------------------------------------------" | pv -qL 90
+echo "NUMBER   |     Filename                          " | pv -qL 90
+echo "-------------------------------------------------" | pv -qL 90
+for t in ${files[@]}; do
+echo "-------------------------------------------------" | pv -qL 90
+echo "$x        $t"                         | pv -qL 90
+x=$((x+1))
+done
+echo "-------------------------------------------------" | pv -qL 90
+echo
+read -p "Please Select " selection
+y=$((x+1))
+
+if [[ $selection ]] && [ $selection -eq $selection 2>/dev/null ]
+  then
+     echo "Valid Selection"  | pv -qL 90
+	 echo
+  else
+     echo "INVALID INPUT"  | pv -qL 90
+	 echo
+	 prompt
+  fi
+
+if [ $selection -lt $x ]
+then
+	echo "Loading File"
+	echo "----------------------------------"  | pv -qL 90
+	echo
+	echo "${files[$selection]}" >> ./$usrname/history.txt
+	aplay -w 120 -l 4 "${files[$selection]}"
 	echo
 	echo
 	echo
