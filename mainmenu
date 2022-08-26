@@ -30,7 +30,7 @@ case $input in
 	"IMAGE")
 		image
 		;&
-	"IMAGE")
+	"AUDIO")
 		audio
 		;&
 	"MOTD")
