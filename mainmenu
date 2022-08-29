@@ -82,6 +82,19 @@ case $input in
 	"FUCKUP")
 		fuckup
 		;&
+	"HISTORY")
+		userhistory
+		;&
+	"VENT")
+		vent
+		;&
+	"VENTFUCK")
+		ventfuck
+		;&
+	"USER")
+		userdeets
+		;&
+	
 	"DISINTEGRATE")
 		exit 1
 		;&
@@ -954,12 +967,101 @@ echo
 prompt
 
 }
+vent()
+{
+
+if [ $maint = "no" ]
+then 
+	echo "WARNING: YOU HAVE INSUFFICIENT COMPUTER PRIVILEGES TO ACCESS THIS FUNCTION."| pv -qL 90
+	sleep 2
+	echo "ACCESS ATTEMPT HAS BEEN LOGGED AND WILL BE REPORTED TO YOUR MANAGER." | pv -qL 90
+	sleep 2
+	prompt
+fi
+echo "WARNING: VENTING ATMOSPHERE IS EXTREMELY DANGEROUS"| pv -qL 90
+sleep 2
+echo "ONLY TAKE THIS STEP IN EXTREME CIRCUMSTANCES"| pv -qL 90
+sleep 2
+read -p "Confirm by typing VENT: " input
+
+case $input in 				
+					"VENT")
+						ventfuck
+						;&
+					"DISINTEGRATE")
+						exit 1
+						;&
+					*)
+						echo -e "INCORRECT PASSWORD" | pv -qL 90
+						sleep 2
+						aplay -q ./ui_hacking_passbad.wav  
+						prompt
+						;;
+
+esac
+
+prompt
+
+}
+userhistory()
+{
+echo "cat $usrname/history.txt"
+
+prompt
+
+}
+userdeets()
+{
+echo "cat $usrname/history.txt"
+
+prompt
+
+}
+ventfuck()
+{
+clear
+sleep 0.4
+aplay -q UI_Terminal_Holotape_ProgramLoad_01.wav
+echo -ne "VENT\r"  | pv -qL 80
+sleep 0.6
+
+echo -ne "VENT [........]\r" | pv -qL 80
+sleep 0.6
+
+echo -ne "VENT [X.......]\r" | pv -qL 80
+sleep 0.6
+
+echo -ne "VENT [XX......]\r" | pv -qL 80
+sleep 0.6
+aplay -q UI_Terminal_Holotape_ProgramLoad_01.wav
+echo -ne "VENT [XXX.....]\r" | pv -qL 80
+sleep 0.6
+
+echo -ne "VENT [XXXX....]\r" | pv -qL 80
+sleep 0.8
+
+echo -ne "VENT [XXXXX...]\r" | pv -qL 80
+sleep 0.6
+
+echo -ne "VENT [XXXXXX..]\r" | pv -qL 80
+sleep 0.6
+
+echo -ne "VENT [XXXXXXX.]\r" | pv -qL 80
+sleep 0.6
+
+echo -ne "VENT [XXXXXXXX]\r" | pv -qL 80
+sleep 2
+
+echo -ne "VENT [XXXXXXX.]\r" | pv -qL 80
+sleep 5
+
+echo -e "VENT Failed    " | pv -qL 80
+sleep 0.6
+
+aplay -q UI_Terminal_Holotape_ProgramLoad_01.wav
+
+prompt
+}
 mainmenu
 
 
-##################################
-####TODO
-####
-####VENT GAS
-####DISABLE POWER
-####HISTORY
