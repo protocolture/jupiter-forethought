@@ -7,3 +7,183 @@ ESCALATE
 root
 FUCKUP
 DISINTEGRATE
+VENTFUCK
+DISINTEGRATE
+VENTDIAG
+USERHISTORY
+HISTORY
+DISINTEGRATE
+HISTORY
+DISINTEGRATE
+HISTORY
+DISINTEGRATE
+[A
+[A[A[A[A[A[A
+DISINTEGRATE
+
+DISINTEGRATE
+DISINTEGRATE
+DISINTEGRATE
+
+
+
+
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+rlwrap -H $usrhist sh -c
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

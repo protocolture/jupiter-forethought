@@ -5,19 +5,27 @@
 hname=$(head -n 1 hostname.txt)
 motd=$(shuf -n 1 motd.txt)
 usrname="spscwby"
+sound="no"
 source ./variables.sh
 root=no
 ##################################################################
 ##################################################################
 prompt()
 {
-
+#history -r ./$usrname/history.txt
+#set -o vi
 cmdprompt=$usrname$usrprompt$hname$apos
+usrhist="./$usrname/history.txt"
 source ./variables.sh
 ##CODE FOR MAIN PROMPT
 trap '' 2 
 
 read -p $cmdprompt input
+#input='rlwrap read -H $usrhist sh -c'
+#input=$(rlwrap -o -S ">" -P $input cat)
+
+#$input=$ #(rlwrap -o -H $usrhist $(read -p $cmdprompt input))
+#input=$(rlwrap -H $usrhist read -n1)
 echo "$input" >> ./$usrname/history.txt
 case $input in
 
@@ -91,6 +99,9 @@ case $input in
 	"VENTFUCK")
 		ventfuck
 		;&
+	"VENTDIAG")
+		ventdiag
+		;&
 	"USER")
 		userdeets
 		;&
@@ -100,7 +111,10 @@ case $input in
 		;&
 	*)
 		echo -e "COMMAND UNRECOGNISED" | pv -qL 90
-		aplay -q UI_Terminal_Holotape_ProgramQuit_02.wav
+		if [ $sound = "yes" ]
+then
+	aplay -q UI_Terminal_Holotape_ProgramQuit_02.wav
+fi   
 		sleep 2
 		prompt
 		;;
@@ -125,7 +139,11 @@ echo $'
 						| |/ /| |\ \| | | || |\  \ \_/ /\__/ /
 						|___/ \_| \_\_| |_/\_| \_/\___/\____/ 
 ' | pv -qL 500
-aplay -q UI_Terminal_Holotape_ProgramLoad_01.wav           
+if [ $sound = "yes" ]
+then
+	aplay -q UI_Terminal_Holotape_ProgramLoad_01.wav
+fi   
+          
 echo "===============================================================================================================================" | pv -qL 90
 echo "Drake Electronics Open Operating System DRAKOS 4.1 beta" | pv -qL 90
 echo "-------------------------------------------------------------------------------------------------------------------------------" | pv -qL 90
@@ -136,7 +154,10 @@ echo
 echo -e $shipname Command Line Interface
 echo  
 echo -e "WELCOME spscwby" | pv -qL 90
-aplay -q UI_Terminal_Holotape_ProgramQuit_01.wav
+if [ $sound = "yes" ]
+then
+	aplay -q UI_Terminal_Holotape_ProgramQuit_01.wav
+fi   
 echo -e "Type LEARN for command reference" | pv -qL 90
 echo 
 sleep 1
@@ -153,10 +174,16 @@ trap '' 2
 #some random aesthetic startup junk
 
 clear
-aplay -q ./UI_Hacking_PasswordHelpAttempts.wav
+if [ $sound = "yes" ]
+then
+	aplay -q UI_Hacking_PasswordHelpAttempts.wav
+fi   
 echo Initializing BIOS | pv -qL 80
 sleep 0.4
-aplay -q UI_Terminal_Holotape_ProgramLoad_01.wav
+if [ $sound = "yes" ]
+then
+	aplay -q UI_Terminal_Holotape_ProgramLoad_01.wav
+fi   
 echo WARNING: BIOS DOES NOT MATCH CALLISTO II BIOS HASH | pv -qL 80
 sleep 0.6
 echo CONTINUE BOOT AT OWN RISK | pv -qL 80
@@ -165,7 +192,10 @@ echo USE OF NON STANDARD BIOS VIOLATES SOFTWARE AGREEMENT | pv -qL 80
 sleep 0.6
 echo SOLAR HARDWARE NOT RESPONSIBLE FOR DAMAGE OR DEATH | pv -qL 80
 sleep 0.8
-aplay -q UI_Terminal_Holotape_ProgramLoad_01.wav
+if [ $sound = "yes" ]
+then
+	aplay -q UI_Terminal_Holotape_ProgramLoad_01.wav
+fi   
 echo -e "\e[4AW#RNING: BI@S DOES NOT MATCH C@LL1STO II BOIS HASH" | pv -qL 80
 
 echo -e "CONTIP*E BONT AT O5N RISK" | pv -qL 80
@@ -174,7 +204,10 @@ echo -e "URE 1F N*N STA*DARD B8OS VIOL(TES SOFTWARE AGR3EME^T" | pv -qL 80
 
 echo -e "SOKAR H@RD#ARE NOT RESPO7SIBLE FOR DEMAGE OR D%ATH" | pv -qL 80
 sleep 0.4
-aplay -q UI_Terminal_Holotape_ProgramLoad_02.wav
+if [ $sound = "yes" ]
+then
+	aplay -q UI_Terminal_Holotape_ProgramLoad_02.wav
+fi   
 echo -e "\e[4AW#R.ING= B*@S D*eS N%T M@TqH C@Ll1!TO %& B.IS H+SH" | pv -qL 80
 
 echo -e "CO*T+P*E BO!T AT O5N R*SK" | pv -qL 80
@@ -183,7 +216,10 @@ echo -e "U!E 1F N*N STA*D+RD B8OS V*OL(T$S SOFTWARE AGR3EME^T" | pv -qL 80
 
 echo -e "S0*AR H@$D#!RE NOT RE+PO7SI*LE F+R DEM!GE @R D%ATH" | pv -qL 80
 sleep 0.4
-aplay -q UI_Terminal_Holotape_ProgramLoad_03.wav
+if [ $sound = "yes" ]
+then
+	aplay -q UI_Terminal_Holotape_ProgramLoad_03.wav
+fi   
 echo -e "\e[4AW#R.ING= B*@? D*eS N%T }@TqH C@Ll1!T+ %& B.I< H+SH" | pv -qL 80
 
 echo -e ":o*?+P*E BO!T AT O5N R*SK" | pv -qL 80
@@ -192,7 +228,10 @@ echo -e "U!E 1F N*N S>A*}+RD B8OS V*OL(T$S S<FT?AR< {GR3EME^T" | pv -qL 80
 
 echo -e "S0*AR H@$D#!RE N{T RE+PO7SI*L? F+R DEM!GE @R D%ATH" | pv -qL 80
 sleep 0.4
-aplay -q UI_Terminal_Holotape_ProgramLoad_01.wav
+if [ $sound = "yes" ]
+then
+	aplay -q UI_Terminal_Holotape_ProgramLoad_01.wav
+fi   
 echo -e "\e[4A****************************************************************" | pv -qL 80
 
 echo -e "********************BIOS SECURITY OVERWRITTEN*******************" | pv -qL 80
@@ -201,7 +240,10 @@ echo -e "****************************************************************" | pv 
 
 echo -e "****************************************************************" | pv -qL 80
 sleep 0.8
-aplay -q UI_Terminal_Holotape_ProgramQuit_02.wav
+if [ $sound = "yes" ]
+then
+	aplay -q UI_Terminal_Holotape_ProgramQuit_02.wav
+fi   
 clear
 echo -ne "Initializing boot.\r" | pv -qL 80
 sleep 0.4
@@ -217,7 +259,10 @@ echo Hardware Detect  | pv -qL 80
 sleep 0.6
 echo Solar Hardware Callisto II  | pv -qL 80
 sleep 0.4
-aplay -q UI_Terminal_Holotape_ProgramLoad_01.wav
+if [ $sound = "yes" ]
+then
+	aplay -q UI_Terminal_Holotape_ProgramLoad_01.wav
+fi   
 echo -ne "MEMTEST\r"  | pv -qL 80
 sleep 0.6
 
@@ -229,7 +274,10 @@ sleep 0.6
 
 echo -ne "MEMTEST [XX......]\r" | pv -qL 80
 sleep 0.6
-aplay -q UI_Terminal_Holotape_ProgramLoad_01.wav
+if [ $sound = "yes" ]
+then
+	aplay -q UI_Terminal_Holotape_ProgramLoad_01.wav
+fi   
 echo -ne "MEMTEST [XXX.....]\r" | pv -qL 80
 sleep 0.6
 
@@ -244,7 +292,10 @@ sleep 0.6
 
 echo -ne "MEMTEST [XXXXXXX.]\r" | pv -qL 80
 sleep 0.6
-aplay -q UI_Terminal_Holotape_ProgramLoad_01.wav
+if [ $sound = "yes" ]
+then
+	aplay -q UI_Terminal_Holotape_ProgramLoad_01.wav
+fi   
 echo -ne "MEMTEST [XXXXXXXX]\r" | pv -qL 80
 sleep 2
 
@@ -256,7 +307,10 @@ sleep 1.2
 
 clear
 catimg ./logo.png -w 170 -c 
-aplay -q UI_Terminal_Holotape_ProgramLoad_01.wav
+if [ $sound = "yes" ]
+then
+	aplay -q UI_Terminal_Holotape_ProgramLoad_01.wav
+fi   
 sleep 3
 
 mainmenu
@@ -269,12 +323,18 @@ learn()
 ##################################################################
 ## LEARN
 trap '' 2 
-aplay -q ./UI_Hacking_PasswordHelpAttempts.wav
+if [ $sound = "yes" ]
+then
+	aplay -q UI_Hacking_PasswordHelpAttempts.wav
+fi   
 echo "===============================================================================================================================" | pv -qL 90
 echo "Drake Legendary Education Analysis Ready-Now System (LEARN)" | pv -qL 90
 echo "-------------------------------------------------------------------------------------------------------------------------------"| pv -qL 90
 echo
-aplay -q UI_Terminal_Holotape_ProgramLoad_02.wav
+if [ $sound = "yes" ]
+then
+	aplay -q UI_Terminal_Holotape_ProgramLoad_02.wav
+fi   
 echo 
 echo "===============================================================================================================================" | pv -qL 90
 echo "                        COMMAND REFERENCE" | pv -qL 90
@@ -331,7 +391,10 @@ load-data()
 {
 ##################################################################
 ##LOAD 
-aplay -q ./UI_Hacking_PasswordHelpAttempts.wav
+if [ $sound = "yes" ]
+then
+	aplay -q UI_Hacking_PasswordHelpAttempts.wav
+fi   
 source ./filesystem.sh
 files=($usrname/*.txt)
 x=0
@@ -385,7 +448,10 @@ image()
 {
 ##################################################################
 ##LOAD IMAGE
-aplay -q ./UI_Hacking_PasswordHelpAttempts.wav
+if [ $sound = "yes" ]
+then
+	aplay -q UI_Hacking_PasswordHelpAttempts.wav
+fi   
 source ./filesystem.sh
 files=($usrname/*.gif)
 x=0
@@ -438,7 +504,10 @@ audio()
 {
 ##################################################################
 ##LOAD IMAGE
-aplay -q ./UI_Hacking_PasswordHelpAttempts.wav
+if [ $sound = "yes" ]
+then
+	aplay -q UI_Hacking_PasswordHelpAttempts.wav
+fi   
 source ./filesystem.sh
 files=($usrname/*.mp3)
 x=0
@@ -492,7 +561,10 @@ read-msg()
 {
 ##################################################################
 ## READ 
-aplay -q ./UI_Hacking_PasswordHelpAttempts.wav
+if [ $sound = "yes" ]
+then
+	aplay -q UI_Hacking_PasswordHelpAttempts.wav
+fi   
 cat ./mail.txt
 prompt
 }
@@ -501,7 +573,10 @@ send-msg()
 {
 ##################################################################
 ## SEND MESSAGE
-aplay -q ./UI_Hacking_PasswordHelpAttempts.wav
+if [ $sound = "yes" ]
+then
+	aplay -q UI_Hacking_PasswordHelpAttempts.wav
+fi   
 read -p "Please Enter Message:" msg
 newmsg=$usrname$delimiter$msg
 echo $newmsg >> ./mail.txt
@@ -513,12 +588,18 @@ atmo()
 ##################################################################
 ## ATMO
 source ./atmo.sh
-aplay -q ./UI_Hacking_PasswordHelpAttempts.wav
+if [ $sound = "yes" ]
+then
+	aplay -q UI_Hacking_PasswordHelpAttempts.wav
+fi   
 echo "===============================================================================================================================" | pv -qL 90
 echo "Internal Atmosphere Composition" | pv -qL 90
 echo "===============================================================================================================================" | pv -qL 90
 echo
-aplay -q UI_Terminal_Holotape_ProgramLoad_01.wav
+if [ $sound = "yes" ]
+then
+	aplay -q UI_Terminal_Holotape_ProgramLoad_01.wav
+fi   
 sleep 0.6
 if [ $nitrogen -gt 0 ]
 then
@@ -567,7 +648,10 @@ log()
 {
 ##################################################################
 ## LOG
-aplay -q ./UI_Hacking_PasswordHelpAttempts.wav
+if [ $sound = "yes" ]
+then
+	aplay -q UI_Hacking_PasswordHelpAttempts.wav
+fi   
 source ./log.sh
 echo "===============================================================================================================================" | pv -qL 90
 echo "Displaying Local Computer Core Log Items" | pv -qL 90
@@ -595,7 +679,10 @@ shipdate()
 {
 ##################################################################
 ## DATE
-aplay -q ./UI_Hacking_PasswordHelpAttempts.wav
+if [ $sound = "yes" ]
+then
+	aplay -q UI_Hacking_PasswordHelpAttempts.wav
+fi   
 echo $shipdatevar
 prompt
 }
@@ -604,7 +691,10 @@ shiptime()
 {
 ##################################################################
 ## Time
-aplay -q ./UI_Hacking_PasswordHelpAttempts.wav
+if [ $sound = "yes" ]
+then
+	aplay -q UI_Hacking_PasswordHelpAttempts.wav
+fi   
 echo $shiptimevar
 
 prompt
@@ -614,7 +704,10 @@ shipstatus()
 ##################################################################
 ## Ship Status
 source ./shipstatus.sh
-aplay -q ./UI_Hacking_PasswordHelpAttempts.wav
+if [ $sound = "yes" ]
+then
+	aplay -q UI_Hacking_PasswordHelpAttempts.wav
+fi   
 echo "===============================================================================================================================" | pv -qL 90
 echo "Welcome to STATUS" | pv -qL 90
 echo "===============================================================================================================================" | pv -qL 90
@@ -628,7 +721,10 @@ search()
 {
 ##################################################################
 ## Search
-aplay -q ./UI_Hacking_PasswordHelpAttempts.wav
+if [ $sound = "yes" ]
+then
+	aplay -q UI_Hacking_PasswordHelpAttempts.wav
+fi   
 echo "===============================================================================================================================" | pv -qL 90
 echo "Welcome to SEARCH" | pv -qL 90
 echo "===============================================================================================================================" | pv -qL 90
@@ -650,7 +746,10 @@ lab()
 ##################################################################
 ## LAB
 source ./lab.sh
-aplay -q ./UI_Hacking_PasswordHelpAttempts.wav
+if [ $sound = "yes" ]
+then
+	aplay -q UI_Hacking_PasswordHelpAttempts.wav
+fi   
 echo "===============================================================================================================================" | pv -qL 90
 echo "Welcome to LAB" | pv -qL 90
 echo "===============================================================================================================================" | pv -qL 90
@@ -674,7 +773,10 @@ locate()
 ##################################################################
 ## LOCATE
 source ./locate.sh
-aplay -q ./UI_Hacking_PasswordHelpAttempts.wav
+if [ $sound = "yes" ]
+then
+	aplay -q UI_Hacking_PasswordHelpAttempts.wav
+fi   
 echo "===============================================================================================================================" | pv -qL 90
 echo "Welcome to LOCATE" | pv -qL 90
 echo "===============================================================================================================================" | pv -qL 90
@@ -1005,14 +1107,14 @@ prompt
 }
 userhistory()
 {
-echo "cat $usrname/history.txt"
+cat "$usrname/history.txt"
 
 prompt
 
 }
 userdeets()
 {
-echo "cat $usrname/history.txt"
+cat "$usrname/history.txt"
 
 prompt
 
@@ -1020,47 +1122,100 @@ prompt
 ventfuck()
 {
 clear
-sleep 0.4
-aplay -q UI_Terminal_Holotape_ProgramLoad_01.wav
-echo -ne "VENT\r"  | pv -qL 80
-sleep 0.6
-
-echo -ne "VENT [........]\r" | pv -qL 80
-sleep 0.6
-
-echo -ne "VENT [X.......]\r" | pv -qL 80
-sleep 0.6
-
-echo -ne "VENT [XX......]\r" | pv -qL 80
-sleep 0.6
-aplay -q UI_Terminal_Holotape_ProgramLoad_01.wav
-echo -ne "VENT [XXX.....]\r" | pv -qL 80
-sleep 0.6
-
-echo -ne "VENT [XXXX....]\r" | pv -qL 80
-sleep 0.8
-
-echo -ne "VENT [XXXXX...]\r" | pv -qL 80
-sleep 0.6
-
-echo -ne "VENT [XXXXXX..]\r" | pv -qL 80
-sleep 0.6
-
-echo -ne "VENT [XXXXXXX.]\r" | pv -qL 80
-sleep 0.6
-
-echo -ne "VENT [XXXXXXXX]\r" | pv -qL 80
+sleep 2
+if [ $sound = "yes" ]
+then
+	aplay -q UI_Terminal_Holotape_ProgramLoad_01.wav
+fi   
+echo -ne "VENTING\r"  | pv -qL 80
 sleep 2
 
-echo -ne "VENT [XXXXXXX.]\r" | pv -qL 80
+echo -ne "VENTING [........]\r" | pv -qL 80
+sleep 2
+
+echo -ne "VENTING [X.......]\r" | pv -qL 80
+sleep 2
+
+echo -ne "VENTING [XX......]\r" | pv -qL 80
+sleep 2
+
+echo -ne "VENTING [XXX.....]\r" | pv -qL 80
+sleep 2
+
+echo -ne "VENTING [XXXX....]\r" | pv -qL 80
+sleep 2
+
+echo -ne "VENTING [XXXXX...]\r" | pv -qL 80
+sleep 2
+
+echo -ne "VENTING [XXXXXX..]\r" | pv -qL 80
+sleep 2
+
+echo -ne "VENTING [XXXXXXX.]\r" | pv -qL 80
+sleep 2
+
+echo -ne "VENTING [XXXXXXXX]\r" | pv -qL 80
+sleep 2
+
+echo -ne "VENTING [XXXXXXX.]\r" | pv -qL 80
 sleep 5
 
 echo -e "VENT Failed    " | pv -qL 80
 sleep 0.6
 
-aplay -q UI_Terminal_Holotape_ProgramLoad_01.wav
+if [ $sound = "yes" ]
+then
+	aplay -q UI_Terminal_Holotape_ProgramLoad_01.wav
+fi   
+
+echo "WARNING: VENTING FAILED. PLEASE CHECK VENTILATION SYSTEM USING VENTDIAG"| pv -qL 90
+sleep 2
 
 prompt
+}
+ventdiag()
+{
+echo "cat $usrname/history.txt"
+clear
+sleep 2
+if [ $sound = "yes" ]
+then
+	aplay -q UI_Terminal_Holotape_ProgramLoad_01.wav
+fi   
+echo -ne "CHECKING VENTS\r"  | pv -qL 80
+sleep 2
+
+echo -ne "CHECKING VENTS [........]\r" | pv -qL 80
+sleep 2
+
+echo -ne "CHECKING VENTS [X.......]\r" | pv -qL 80
+sleep 2
+
+echo -ne "CHECKING VENTS [XX......]\r" | pv -qL 80
+sleep 2
+
+echo -ne "CHECKING VENTS [XXX.....]\r" | pv -qL 80
+sleep 2
+
+echo -ne "CHECKING VENTS [XXXX....]\r" | pv -qL 80
+sleep 2
+
+echo -ne "CHECKING VENTS [XXXXX...]\r" | pv -qL 80
+sleep 2
+
+echo -ne "CHECKING VENTS [XXXXXX..]\r" | pv -qL 80
+sleep 2
+
+echo -ne "CHECKING VENTS [XXXXXXX.]\r" | pv -qL 80
+sleep 2
+
+echo -ne "CHECKING VENTS [XXXXXXXX]\r" | pv -qL 80
+sleep 2
+
+echo -e "VENTS ARE BLOCKED. PLEASE REMOVE OBSTRUCTIONS TO RESTORE VENTILATION" | pv -qL 80
+sleep 0.6
+prompt
+
 }
 mainmenu
 

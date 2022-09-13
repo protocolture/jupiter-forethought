@@ -2,3 +2,5 @@ bash
 ubuntu
 wikipedia2text
 links
+rlwrap
+mpg123
