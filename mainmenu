@@ -20,12 +20,9 @@ source ./variables.sh
 ##CODE FOR MAIN PROMPT
 trap '' 2 
 
-read -p $cmdprompt input
-#input='rlwrap read -H $usrhist sh -c'
-#input=$(rlwrap -o -S ">" -P $input cat)
+#echo -ne "$cmdprompt" 
+input=$(rlwrap -S $cmdprompt -H $userhist -f $userhist -o cat)
 
-#$input=$ #(rlwrap -o -H $usrhist $(read -p $cmdprompt input))
-#input=$(rlwrap -H $usrhist read -n1)
 echo "$input" >> ./$usrname/history.txt
 case $input in
 
