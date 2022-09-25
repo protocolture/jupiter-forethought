@@ -5,7 +5,7 @@
 hname=$(head -n 1 hostname.txt)
 motd=$(shuf -n 1 motd.txt)
 usrname="spscwby"
-sound="no"
+sound="yes"
 source ./variables.sh
 root=no
 ##################################################################
