@@ -13,6 +13,9 @@ root=no
 prompt()
 {
 #history -r ./$usrname/history.txt
+
+kasa --type strip --host 192.168.20.63 off --index 0
+
 #set -o vi
 cmdprompt=$usrname$usrprompt$hname$apos
 usrhist="./$usrname/history.txt"
@@ -24,6 +27,9 @@ trap '' 2
 input=$(rlwrap -S $cmdprompt -H $userhist -f $userhist -o cat)
 
 echo "$input" >> ./$usrname/history.txt
+kasa --type strip --host 192.168.20.63 on --index 0
+sleep 8
+
 case $input in
 
 	"LEARN")
