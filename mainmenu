@@ -506,7 +506,7 @@ prompt
 audio()
 {
 ##################################################################
-##LOAD IMAGE
+##LOAD AUDIO
 if [ $sound = "yes" ]
 then
 	aplay -q UI_Hacking_PasswordHelpAttempts.wav
@@ -543,7 +543,7 @@ then
 	echo "----------------------------------"  | pv -qL 90
 	echo
 	echo "${files[$selection]}" >> ./$usrname/history.txt
-	aplay -w 120 -l 4 "${files[$selection]}"
+	mpg123 -w 120 -l 4 "${files[$selection]}"
 	echo
 	echo
 	echo
