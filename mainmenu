@@ -493,7 +493,7 @@ then
 	echo "----------------------------------"  | pv -qL 90
 	echo
 	echo "${files[$selection]}" >> ./$usrname/history.txt
-	catimg -w 120 -l 4 "${files[$selection]}"
+	catimg -c 2 -w 120 -l 4 "${files[$selection]}"
 	echo
 	echo
 	echo
