@@ -4,6 +4,7 @@
 ##################################################################
 hname=$(head -n 1 hostname.txt)
 motd=$(shuf -n 1 motd.txt)
+cd ~/jupiter-forethought
 usrname="spscwby"
 sound="yes"
 source ./variables.sh
