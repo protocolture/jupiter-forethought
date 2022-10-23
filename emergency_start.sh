@@ -57,6 +57,21 @@ sleep 1
 kasa --type strip --host 192.168.20.148 off --index 0
 
 sleep 1
+##* Socket 'Electrical Lights' state: OFF on_since: None
+kasa --type strip --host 192.168.20.65 off --index 0
+
+sleep 1
+
+## * Socket 'Spotlight' state: OFF on_since: None
+kasa --type strip --host 192.168.20.65 off --index 1
+
+sleep 1
+##
+##  * Socket 'Spotlight2' state: OFF on_since: None
+kasa --type strip --host 192.168.20.65 off --index 2
+		
+
+sleep 1
 
 mpg123 ./alarm-buzzer-sound.mp3
 
