@@ -546,7 +546,7 @@ then
 	echo "----------------------------------"  | pv -qL 90
 	echo
 	echo "${files[$selection]}" >> ./$usrname/history.txt
-	mpg123 -w 120 -l 4 "${files[$selection]}"
+	mpg123 "${files[$selection]}"
 	echo
 	echo
 	echo
