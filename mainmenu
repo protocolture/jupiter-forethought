@@ -546,7 +546,7 @@ then
 	echo "----------------------------------"  | pv -qL 90
 	echo
 	echo "${files[$selection]}" >> ./$usrname/history.txt
-	mpg123 -o alsa -b 1024 -v 06 "${files[$selection]}" >> /dev/null
+	mpg123 -o alsa -b 1024 -v 06 "${files[$selection]}" & >> /dev/null &
 	echo
 	echo
 	echo
