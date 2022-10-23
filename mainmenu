@@ -1120,11 +1120,10 @@ prompt
 }
 userdeets()
 {
-cat "$usrname/history.txt"
+cat $usrname
 
 prompt
 
-}
 }
 power()
 {
