@@ -1077,8 +1077,9 @@ prompt
 }
 vent()
 {
+echo "..................................................WELCOME TO VENT CONTROL........................................................" | pv -qL 20
 
-if [ $usrname == "maint" ]
+if [ $usrname != "maint" ]
 then 
 	echo "WARNING: YOU HAVE INSUFFICIENT COMPUTER PRIVILEGES TO ACCESS THIS FUNCTION."| pv -qL 90
 	sleep 2
@@ -1100,7 +1101,7 @@ case $input in
 						exit 1
 						;&
 					*)
-						echo -e "INCORRECT PASSWORD" | pv -qL 90
+						echo -e "INCORRECT ENTRY" | pv -qL 90
 						sleep 2
 						aplay -q ./ui_hacking_passbad.wav  
 						prompt
