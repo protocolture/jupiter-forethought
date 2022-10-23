@@ -10,3 +10,8 @@ For any new user accounts you create, add a directory with that name to the top 
 For GM interaction, most functions that return a result, pull in from an associated script. For instance the ATMO command returns and interprets the results of atmo.sh fresh every time. The GM can simply (haha!) edit these files on the fly to represent changing conditions. 
 
 Note: There are plenty of implementations of this in easier to use formats. I have taken some inspiration from Fallout 3 Terminal and wanted to do this as close to hardware as reasonable, trying to create a system that will be useful for physical props. If you want something to display on a tablet screen or in a virtual tabletop this is not the solution for you. Recommend https://github.com/gparali/Terminal-Maker for this purpose. 
+
+Start point is mainment 
+
+Use like bash ./mainmenu
+
