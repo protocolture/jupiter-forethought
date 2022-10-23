@@ -5,6 +5,11 @@ kasa --type strip --host 192.168.20.63 off --index 0
 
 sleep 1
 
+##Data Drive Lights
+kasa --type strip --host 192.168.20.63 off --index 1
+
+sleep 1
+
 ##TV Land
 kasa --type strip --host 192.168.20.149 off --index 0
 
@@ -37,6 +42,12 @@ sleep 1
 kasa --type strip --host 192.168.20.58 off --index 0
 
 sleep 1
+
+
+kasa --type strip --host 192.168.20.58 off --index 1
+
+sleep 1
+
 
 kasa --type strip --host 192.168.20.58 off --index 2
 
