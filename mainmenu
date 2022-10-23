@@ -1078,7 +1078,7 @@ prompt
 vent()
 {
 
-if [ $maint == "no" ]
+if [ $usrname == "maint" ]
 then 
 	echo "WARNING: YOU HAVE INSUFFICIENT COMPUTER PRIVILEGES TO ACCESS THIS FUNCTION."| pv -qL 90
 	sleep 2
