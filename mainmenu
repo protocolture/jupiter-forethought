@@ -162,7 +162,7 @@ echo "--------------------------------------------------------------------------
 echo  
 echo -e $shipname Command Line Interface
 echo  
-echo -e "WELCOME spscwby" | pv -qL 90
+echo -e "WELCOME" $usrname | pv -qL 90
 if [ $sound = "yes" ]
 then
 	aplay -q UI_Terminal_Holotape_ProgramQuit_01.wav
@@ -889,7 +889,7 @@ case $ninput in
 					"TRANQ")
 						echo
 						aplay -q ./ui_hacking_passgood.wav 
-						usrname="maint"
+						usrname="med"
 						root=no
 						mainmenu
 						;&
