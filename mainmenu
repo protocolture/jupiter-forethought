@@ -1,11 +1,14 @@
 #!/bin/bash
+cd "${0%/*}"
+export PS1="\e[0;31m[\u@\h \W]\$ \e[m "
 ##################################################################
 ##GLOBALS
 ##################################################################
 hname=$(head -n 1 hostname.txt)
 motd=$(shuf -n 1 motd.txt)
+#cd ~/jupiter-forethought
 usrname="spscwby"
-sound="no"
+sound="yes"
 source ./variables.sh
 root=no
 ##################################################################
@@ -13,6 +16,9 @@ root=no
 prompt()
 {
 #history -r ./$usrname/history.txt
+
+bash ./td_off.sh >> /dev/null
+
 #set -o vi
 cmdprompt=$usrname$usrprompt$hname$apos
 usrhist="./$usrname/history.txt"
@@ -24,6 +30,9 @@ trap '' 2
 input=$(rlwrap -S $cmdprompt -H $userhist -f $userhist -o cat)
 
 echo "$input" >> ./$usrname/history.txt
+bash ./td_on.sh >> /dev/null
+sleep 8
+
 case $input in
 
 	"LEARN")
@@ -83,6 +92,9 @@ case $input in
 		;&
 	"SCRAMBLE")
 		scramble
+		;&
+	"POWER")
+		power
 		;&
 	"FUCKUP")
 		fuckup
@@ -481,7 +493,7 @@ then
 	echo "----------------------------------"  | pv -qL 90
 	echo
 	echo "${files[$selection]}" >> ./$usrname/history.txt
-	catimg -w 120 -l 4 "${files[$selection]}"
+	catimg -c 2 -w 120 -l 4 "${files[$selection]}"
 	echo
 	echo
 	echo
@@ -500,7 +512,7 @@ prompt
 audio()
 {
 ##################################################################
-##LOAD IMAGE
+##LOAD AUDIO
 if [ $sound = "yes" ]
 then
 	aplay -q UI_Hacking_PasswordHelpAttempts.wav
@@ -537,7 +549,7 @@ then
 	echo "----------------------------------"  | pv -qL 90
 	echo
 	echo "${files[$selection]}" >> ./$usrname/history.txt
-	aplay -w 120 -l 4 "${files[$selection]}"
+	mpg123 -q -o alsa -b 1024 -v 06 "${files[$selection]}" & >> /dev/null &
 	echo
 	echo
 	echo
@@ -889,7 +901,7 @@ sleep 0.6
 ##################################################################
 scramble()
 {
-if [ $root = "no" ]
+if [ $usrname != "root" ]
 then 
 	echo "WARNING: YOU HAVE INSUFFICIENT COMPUTER PRIVILEGES TO ACCESS THIS FUNCTION."| pv -qL 90
 	sleep 2
@@ -1068,8 +1080,9 @@ prompt
 }
 vent()
 {
+echo "..................................................WELCOME TO VENT CONTROL........................................................" | pv -qL 20
 
-if [ $maint = "no" ]
+if [ $usrname != "maint" ]
 then 
 	echo "WARNING: YOU HAVE INSUFFICIENT COMPUTER PRIVILEGES TO ACCESS THIS FUNCTION."| pv -qL 90
 	sleep 2
@@ -1091,7 +1104,7 @@ case $input in
 						exit 1
 						;&
 					*)
-						echo -e "INCORRECT PASSWORD" | pv -qL 90
+						echo -e "INCORRECT ENTRY" | pv -qL 90
 						sleep 2
 						aplay -q ./ui_hacking_passbad.wav  
 						prompt
@@ -1111,7 +1124,49 @@ prompt
 }
 userdeets()
 {
-cat "$usrname/history.txt"
+cat $usrname
+
+prompt
+
+}
+power()
+{
+echo " WELCOME TO POWER CONTROL" | pv -qL 90
+echo "-------------------------------------------------------------------------------------------------------------------------------"| pv -qL 90
+echo " Refer to operation manual for correct power selection.           " | pv -qL 90
+echo "-------------------------------------------------------------------------------------------------------------------------------"| pv -qL 90
+
+read -p "ENTER DESIRED POWER LEVEL: " ninput
+
+echo "$ninput" >> ./$usrname/history.txt
+case $ninput in 
+
+					"1")
+						aplay -q ./ui_hacking_passgood.wav 
+						
+						bash ./high_power.sh >> /dev/null
+						prompt
+						;&
+					"2")
+						aplay -q ./ui_hacking_passgood.wav 
+						
+						bash ./low_power.sh >> /dev/null
+						prompt
+						;&
+					"3")
+						aplay -q ./ui_hacking_passgood.wav 
+						
+						bash ./no_power.sh >> /dev/null
+						prompt
+						;&
+					*)
+						echo -e "INCORRECT ENTRY" | pv -qL 90
+						sleep 2
+						aplay -q ./ui_hacking_passbad.wav  
+						prompt
+						;;
+					esac
+
 
 prompt
 
