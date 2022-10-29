@@ -1,1 +1,3 @@
-Last remaining beers are stored in a small cutout beneath the maintenance rec couch.
+Last remaining BEERs are stored in a small cutout beneath the *maint* rec couch.
+
+Also clean up the vents, check all compartments for leaks etc etc. 

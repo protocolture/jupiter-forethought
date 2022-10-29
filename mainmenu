@@ -882,6 +882,35 @@ case $ninput in
 						;;
 				esac
 			;&
+			"med")
+				read -p "ENTER PASSWORD: " input
+				case $input in
+
+					"TRANQ")
+						echo
+						aplay -q ./ui_hacking_passgood.wav 
+						usrname="maint"
+						root=no
+						mainmenu
+						;&
+					"HINT")
+						echo "UNDER THE COUCH" | pv -qL 90
+						sleep 0.6
+						echo
+						aplay -q ./ui_hacking_passbad.wav  
+						prompt
+						;&
+					"DISINTEGRATE")
+						exit 1
+						;&
+					*)
+						echo -e "INCORRECT PASSWORD" | pv -qL 90
+						sleep 2
+						aplay -q ./ui_hacking_passbad.wav  
+						prompt
+						;;
+				esac
+			;&
 			"spscwby")
 				echo -e "WELCOME BACK" | pv -qL 90
 				usrname="spscwby"
