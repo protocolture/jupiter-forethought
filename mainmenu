@@ -35,94 +35,26 @@ sleep 8
 
 case $input in
 
-	"LEARN")
-		learn
+	"OCEAN")
+		mpg123 -q -o alsa -b 1024 -v /whitenoise/OCEAN.mp3
 		;&
-	"LOAD")
-		load-data
+	"STREAM")
+		mpg123 -q -o alsa -b 1024 -v /whitenoise/stream.mp3
 		;&
-	"IMAGE")
-		image
+	"RAIN")
+		mpg123 -q -o alsa -b 1024 -v /whitenoise/rain.mp3
 		;&
-	"AUDIO")
-		audio
-		;&
-	"MOTD")
-		echo $motd | fmt -w 83 | pv -qL 90
-		prompt
-		;&
-	"READ")
-		read-msg
-		;&
-	"SEND")
-		send-msg
-		;&
-	"ATMO")
-		atmo
-		;&
-	"LOG")
-		log
-		;&
-	"LAB")
-		lab
-		;&
-	"REBOOT")
-		boot
-		;&
-	"DATE")
-		shipdate
-		;&
-	"TIME")
-		shiptime
-		;&
-	"SEARCH")
-		search
-		;&
-	"STATUS")
-		shipstatus
-		;&
-	"LOCATE")
-		locate
-		;&
-	"ESCALATE")
-		escalate
-		;&
-	"WHOAMI")
-		whoami
-		;&
-	"SCRAMBLE")
-		scramble
-		;&
-	"POWER")
-		power
-		;&
-	"FUCKUP")
-		fuckup
-		;&
-	"HISTORY")
-		userhistory
-		;&
-	"VENT")
-		vent
-		;&
-	"VENTFUCK")
-		ventfuck
-		;&
-	"VENTDIAG")
-		ventdiag
-		;&
-	"USER")
-		userdeets
-		;&
-	
-	"DISINTEGRATE")
+	"STORM")
+		mpg123 -q -o alsa -b 1024 -v /whitenoise/storm.mp3
+		;&	
+	"EXIT")
 		exit 1
 		;&
 	*)
 		echo -e "COMMAND UNRECOGNISED" | pv -qL 90
 		if [ $sound = "yes" ]
 then
-	aplay -q UI_Terminal_Holotape_ProgramQuit_02.wav
+	#aplay -q UI_Terminal_Holotape_ProgramQuit_02.wav
 fi   
 		sleep 2
 		prompt
