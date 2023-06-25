@@ -54,7 +54,7 @@ case $input in
 		echo -e "COMMAND UNRECOGNISED" | pv -qL 90
 		if [ $sound = "yes" ]
 then
-	#aplay -q UI_Terminal_Holotape_ProgramQuit_02.wav
+	aplay -q UI_Terminal_Holotape_ProgramQuit_02.wav
 fi   
 		sleep 2
 		prompt
