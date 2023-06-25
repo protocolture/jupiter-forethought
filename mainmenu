@@ -36,16 +36,20 @@ sleep 8
 case $input in
 
 	"OCEAN")
-		mpg123 -q -o alsa -b 1024 -v /whitenoise/OCEAN.mp3
+		mpg123 -q -o alsa -b 1024 -v /whitenoise/ocean.mp3
+		prompt
 		;&
 	"STREAM")
 		mpg123 -q -o alsa -b 1024 -v /whitenoise/stream.mp3
+		prompt
 		;&
 	"RAIN")
 		mpg123 -q -o alsa -b 1024 -v /whitenoise/rain.mp3
+		prompt
 		;&
 	"STORM")
 		mpg123 -q -o alsa -b 1024 -v /whitenoise/storm.mp3
+		prompt
 		;&	
 	"EXIT")
 		exit 1
